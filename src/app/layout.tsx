@@ -17,6 +17,29 @@ export const metadata: Metadata = {
   title: "AmenX | Web Developer & Problem Solver",
   description:
     "AmenX is a full-stack web developer focused on building modern, scalable, and performance-driven web applications using clean code and real-world best practices.",
+  openGraph: {
+    description:
+      "AmenX is a full-stack web developer focused on building modern, scalable, and performance-driven web applications using clean code and real-world best practices.",
+    url: "https://amenx.me",
+    siteName: "AmenX Portfolio",
+    images: [
+      {
+        url: "https://amenx.me/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AmenX Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AmenX | Web Developer & Problem Solver",
+    description:
+      "AmenX is a full-stack web developer focused on building modern, scalable, and performance-driven web applications using clean code and real-world best practices.",
+    images: ["https://amenx.me/opengraph-image.png"],
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +49,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
         <LenisScroll />
       </body>
