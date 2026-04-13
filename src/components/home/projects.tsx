@@ -14,11 +14,20 @@ export default function FeaturedProjects() {
       image: "/earnex-screen.webp",
       projectUrl: "https://www.earnexrewards.com/",
     },
+    {
+      id: 2,
+      title: "Portfolio Website",
+      description:
+        "A personal portfolio website built with Next.js, showcasing projects, skills, and experience with a modern, responsive design, With smooth animations and interactive elements.",
+      tags: ["REACT", "NEXTJS", "TAILWIND CSS"],
+      image: "/portfolio-img-1.png",
+      projectUrl: "https://ayush-portfolio-two-beta.vercel.app/",
+    },
   ];
 
   return (
-    <div id="projects" className="text-white px-4 sm:px-6 lg:px-8 mt-28">
-      <div className="max-w-7xl mx-auto">
+    <div id="projects" className="text-white">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header Section */}
         <div className="mb-8 sm:mb-12 md:mb-16 ">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-8 mb-8 sm:mb-12">
@@ -40,20 +49,10 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-8 md:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-8 md:gap-10 flex-col gap-10">
           {projects.map((project) => (
             <CardContainer key={project.id} className="inter-var w-full">
               <CardBody className="bg-slate-800/40 relative group/card hover:shadow-2xl hover:shadow-cyan-500/10 backdrop-blur-sm border-slate-700/50 border w-full h-auto rounded-xl p-6 sm:p-8 transition-all duration-300 hover:bg-slate-800/60 hover:border-slate-600/50">
-                {/* Project Number Badge */}
-                <CardItem
-                  translateZ="50"
-                  className="text-cyan-400 font-mono text-xs sm:text-sm mb-3 sm:mb-4"
-                >
-                  <span className="bg-cyan-500/20 border border-cyan-500/50 rounded-full px-3 py-1">
-                    PROJECT #{project.id.toString().padStart(2, "0")}
-                  </span>
-                </CardItem>
-
                 {/* Title */}
                 <CardItem
                   translateZ="60"
@@ -105,7 +104,11 @@ export default function FeaturedProjects() {
                     href={project.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-black transition-all duration-200 hover:shadow-lg transform hover:scale-105 bg-[#00CECE] flex-1"
+                    style={{
+                      background: "linear-gradient(135deg, #7B61FF, #5B3FDE)",
+                      boxShadow: "0 0 40px rgba(123,97,255,0.3)",
+                    }}
+                    className="flex w-full items-center justify-center gap-2 px-4 py-1.5 md:py-2.5 rounded-lg font-semibold text-white transition-all duration-200 hover:shadow-lg transform hover:scale-105 flex-1 text-sm"
                   >
                     <IconExternalLink className="w-4 h-4" />
                     <span>View Project</span>

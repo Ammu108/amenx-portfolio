@@ -2,61 +2,63 @@ import { SKILLS } from "@/src/lib/constant";
 
 export default function CoreProficiencies() {
   return (
-    <div id="skills" className="text-white px-4 sm:px-6 lg:px-8 mt-28">
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="mb-8 sm:mb-12 md:mb-16 ">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-8 mb-8 sm:mb-12">
-            <div>
-              <p className="text-cyan-400 text-xs sm:text-sm font-mono tracking-widest uppercase mb-3 sm:mb-4">
-                SKILLS
-              </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-                Core Proficiencies
-              </h2>
-            </div>
-            {/* <div className="text-right">
-              <p className="text-cyan-400 text-xs sm:text-sm font-mono flex items-center justify-start sm:justify-end gap-2">
-                <span className="w-2 h-2 bg-cyan-400 rounded-full inline-block"></span>
-                System online | v2.4.0
-              </p>
-            </div> */}
+    <section id="skills" className="relative isolate overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-55"
+      />
+
+      <div className="mx-auto w-full max-w-7xl px-4 flex flex-col gap-6 md:gap-10">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <span className="inline-flex w-fit items-center rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1 text-[11px] font-mono uppercase tracking-[0.18em] text-cyan-300">
+              Core Proficiencies
+            </span>
+            <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+              Skills that ship clean interfaces and scalable products.
+            </h2>
+            <p className="text-base leading-relaxed text-white/60 md:text-lg">
+              My toolkit covers modern frontend development, design systems, and
+              practical backend integration to move from idea to production
+              quickly.
+            </p>
           </div>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 md:gap-6">
-          {SKILLS.map((skill, index) => {
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {SKILLS.map((skill) => {
             const Icon = skill.icon;
 
             return (
-              <div key={index} className="group relative">
-                {/* Card */}
-                <div className="relative bg-linear-to-br from-slate-800/30 to-slate-900/30 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6 sm:p-7 md:p-8 hover:border-cyan-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 flex flex-col items-center text-center h-full group-hover:bg-slate-800/40">
-                  {/* Icon Container */}
-                  <div className="mb-4 sm:mb-5 md:mb-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center rounded-lg bg-slate-700/40 group-hover:bg-slate-700/60 transition-all duration-300">
-                      <Icon
-                        className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 ${skill.color}`}
-                      />
-                    </div>
+              <article
+                key={skill.name}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0f1f]/70 p-3  md:p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30"
+              >
+                <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#7B61FF]/15 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute -left-16 -bottom-16 h-36 w-36 rounded-full bg-[#00E5FF]/10 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="relative z-10 flex flex-col md:flex-row items-start justify-between gap-4">
+                  <div className="space-y-2">
+                    <p className="text-lg font-semibold text-white">
+                      {skill.name}
+                    </p>
+                    <p className="text-sm leading-relaxed text-white/55">
+                      {skill.subtitle}
+                    </p>
                   </div>
-
-                  {/* Skill Name */}
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-white">
-                    {skill.name}
-                  </h3>
-
-                  {/* Skill Subtitle */}
-                  <p className="text-gray-400 text-xs sm:text-sm font-mono uppercase tracking-wide">
-                    {skill.subtitle}
-                  </p>
+                  <span className="rounded-xl border border-white/15 bg-white/5 p-2.5">
+                    <Icon className={`h-5 w-5 ${skill.color}`} stroke={1.8} />
+                  </span>
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -3,8 +3,14 @@
 export function AmenxSparkle() {
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-hidden rounded-md">
-      <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
-        <span className="bg-linear-to-r from-cyan-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent drop-shadow-lg">
+      <h1 className="md:text-7xl text-5xl lg:text-9xl font-bold text-center text-white relative z-20">
+        <span
+          className="bg-clip-text text-transparent drop-shadow-lg"
+          style={{
+            backgroundImage:
+              "linear-gradient(135deg, #7B61FF 0%, #00E5FF 50%, #FF6BBA 100%)",
+          }}
+        >
           AMENX.TS
         </span>
       </h1>

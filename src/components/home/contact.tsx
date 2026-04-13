@@ -1,4 +1,8 @@
-import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+} from "@tabler/icons-react";
 import { AmenxSparkle } from "../ui/amenx-sparkle";
 
 export default function FooterNavigation() {
@@ -29,7 +33,7 @@ export default function FooterNavigation() {
   return (
     <div
       id="contact"
-      className="text-white flex flex-col mt-28 items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20"
+      className="text-white flex flex-col items-center justify-center px-4 py-8 md:py-12"
     >
       <div className="max-w-7xl w-full">
         {/* Logo/Title */}
@@ -52,7 +56,9 @@ export default function FooterNavigation() {
                   href={link.href}
                   className="flex items-center gap-3 sm:gap-4 group hover:translate-x-2 transition-transform duration-300"
                 >
-                  <span className="text-cyan-400 font-mono text-xs sm:text-sm">{link.id}</span>
+                  <span className="text-cyan-400 font-mono text-xs sm:text-sm">
+                    {link.id}
+                  </span>
                   <span className="text-base sm:text-lg md:text-xl font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
                     {link.label}
                   </span>
@@ -93,7 +99,9 @@ export default function FooterNavigation() {
             <div className="border border-cyan-500/30 rounded-lg p-5 sm:p-6 md:p-8 bg-slate-800/30 backdrop-blur-sm space-y-4 sm:space-y-5">
               {/* Location */}
               <div className="flex items-center justify-between border-slate-700/50 pt-4 sm:pt-5">
-                <span className="text-gray-400 text-xs sm:text-sm font-mono">Location:</span>
+                <span className="text-gray-400 text-xs sm:text-sm font-mono">
+                  Location:
+                </span>
                 <span className="text-white text-sm sm:text-base font-mono font-semibold">
                   Remote / Worldwide
                 </span>
@@ -115,7 +123,7 @@ export default function FooterNavigation() {
               {/* Email Link */}
               <a
                 href="mailto:kumaramenx108@gmail.com"
-                className="text-[#00CECE] text-xs font-medium sm:text-lg cursor-pointer hover:text-cyan-500 font-mono border-t border-slate-700/50 pt-4 sm:pt-5 flex items-center gap-2 transition-colors duration-200"
+                className="text-[#00CECE] text-md font-medium sm:text-lg cursor-pointer hover:text-cyan-500 font-mono border-t border-slate-700/50 pt-4 sm:pt-5 flex items-center gap-2 transition-colors duration-200"
               >
                 <span>🔗</span>
                 <span>kumaramenx108@gmail.com</span>

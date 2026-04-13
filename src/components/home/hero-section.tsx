@@ -1,195 +1,278 @@
 "use client";
-import { IconFileCvFilled } from "@tabler/icons-react";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useDownloadFile } from "@/lib/download-hook";
 
-export default function HeroSection() {
-  const { download } = useDownloadFile();
+// ─── Code Snippet Decoration ─────────────────────────────────────────────────
+function CodeCard() {
+  const lines = [
+    {
+      indent: 0,
+      tokens: [
+        { t: "const", c: "#7B61FF" },
+        { t: " developer = {", c: "#e2e8f0" },
+      ],
+    },
+    {
+      indent: 1,
+      tokens: [
+        { t: "name:", c: "#00E5FF" },
+        { t: " 'AmenX',", c: "#a78bfa" },
+      ],
+    },
+    {
+      indent: 1,
+      tokens: [
+        { t: "passion:", c: "#00E5FF" },
+        { t: " 'Turning Ideas into Reality',", c: "#a78bfa" },
+      ],
+    },
+    {
+      indent: 1,
+      tokens: [
+        { t: "stack:", c: "#00E5FF" },
+        { t: " [", c: "#e2e8f0" },
+        { t: "'React'", c: "#a78bfa" },
+        { t: ", ", c: "#e2e8f0" },
+        { t: "'NextJs'", c: "#a78bfa" },
+        { t: "],", c: "#e2e8f0" },
+      ],
+    },
+    {
+      indent: 1,
+      tokens: [
+        { t: "available:", c: "#00E5FF" },
+        { t: " ", c: "#e2e8f0" },
+        { t: "true", c: "#FF6BBA" },
+      ],
+    },
+    { indent: 0, tokens: [{ t: "}", c: "#e2e8f0" }] },
+  ];
 
   return (
-    <div className="relative text-white min-h-screen overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 opacity-30 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
-        {/* <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl"></div> */}
-      </div>
+    <div className="relative w-full max-w-sm">
+      {/* Glow behind card */}
+      <div className="absolute -inset-4 bg-[#7B61FF]/10 rounded-3xl blur-2xl" />
 
-      <div className="relative z-10 w-full lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-        <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Left Content */}
-            <div className="flex flex-col justify-center space-y-6 sm:space-y-4 items-center lg:items-start">
-              {/* Badge */}
-              <div className="inline-flex w-fit flex-col gap-3">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                  <span className="px-3 sm:px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full text-cyan-400 text-[10px] md:text-xs font-semibold tracking-wider">
-                    ● AVAILABLE FOR NEW PROJECTS
-                  </span>
-                  <span className="inline-flex justify-center items-center gap-1.5 px-3 sm:px-4 py-2 bg-green-500/20 border border-green-500/50 rounded-full text-green-400 text-[10px] md:text-xs font-semibold tracking-wider">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    WORKING AT EARNEX
-                  </span>
-                </div>
-                <div className="text-xs sm:text-sm text-purple-400 text-center lg:text-start">
-                  <span className="text-purple-500">&gt;&gt;</span> 8+ months of
-                  experience
-                </div>
-              </div>
+      <div className="relative bg-[#0D0D1F] border border-white/8 rounded-2xl overflow-hidden shadow-2xl">
+        {/* Top bar */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/2">
+          <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+          <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+          <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+          <span className="ml-2 text-white/20 text-xs font-mono">
+            developer.js
+          </span>
+        </div>
 
-              {/* Main Heading */}
-              <div>
-                <h1 className="text-4xl sm:text-5xl text-center lg:text-start md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-                  Hello World,
-                </h1>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-                  I&apos;m{" "}
-                  <span className="text-cyan-400 underline">
-                    {"<>AMENX</>"}
-                  </span>
-                </h1>
-              </div>
-
-              {/* Description */}
-              <div>
-                <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-md leading-relaxed text-center lg:text-start">
-                  I&apos;m a developer who loves turning ideas into fast,
-                  scalable, and user-focused digital products using clean code
-                  and real-world best practices.
-                </p>
-              </div>
-
-              {/* CTA Section */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <Button
-                  variant="primary"
-                  size="xl"
-                  onClick={() => download("/amenx-resume.pdf", "resume.pdf")}
-                >
-                  <IconFileCvFilled className="size-6" />
-                  View Resume
-                </Button>
-                <span className="text-gray-300 text-xs sm:text-sm">
-                  1,248 commits this year
+        {/* Code body */}
+        <div className="p-5 font-mono text-sm leading-7">
+          {lines.map((line, i) => (
+            <div key={i} style={{ paddingLeft: `${line.indent * 16}px` }}>
+              {line.tokens.map((tok, j) => (
+                <span key={j} style={{ color: tok.c }}>
+                  {tok.t}
                 </span>
-              </div>
+              ))}
             </div>
+          ))}
+        </div>
 
-            {/* Right Code Block */}
-            <div className="flex items-center justify-center lg:justify-end w-full">
-              <div className="w-full max-w-md bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-lg overflow-hidden shadow-2xl">
-                {/* Header */}
-                <div className="bg-slate-800 px-3 sm:px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                  <div className="flex gap-2">
-                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
-                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
-                  </div>
-                  <span className="text-xs text-gray-500 font-mono tracking-wider">
-                    EXPERIENCE.TS
-                  </span>
-                </div>
-
-                {/* Code Content */}
-                <div className="p-4 sm:p-5 md:p-6 font-mono text-xs sm:text-sm leading-relaxed">
-                  <div className="space-y-1.5 text-gray-300">
-                    {/* Line 1 */}
-                    <div>
-                      <span className="text-purple-400">const</span>
-                      <span className="text-white"> profile</span>
-                      <span className="text-gray-400"> = </span>
-                      <span className="text-yellow-400">{`{`}</span>
-                    </div>
-
-                    {/* Line 2 */}
-                    <div className="pl-4">
-                      <span className="text-cyan-400">name</span>
-                      <span className="text-gray-400">: </span>
-                      <span className="text-green-400">&apos;AmenX&apos;</span>
-                      <span className="text-gray-400">,</span>
-                    </div>
-
-                    {/* Line 3 */}
-                    <div className="pl-4">
-                      <span className="text-cyan-400">role</span>
-                      <span className="text-gray-400">: </span>
-                      <span className="text-green-400">
-                        &apos;Frontend Developer&apos;
-                      </span>
-                      <span className="text-gray-400">,</span>
-                    </div>
-
-                    {/* Line 4 */}
-                    <div className="pl-4">
-                      <span className="text-cyan-400">experience</span>
-                      <span className="text-gray-400">: </span>
-                      <span className="text-blue-400">8</span>
-                      <span className="text-gray-500"> {"// months"}</span>
-                    </div>
-
-                    {/* Line 5 */}
-                    <div className="pl-4">
-                      <span className="text-cyan-400">commits</span>
-                      <span className="text-gray-400">: </span>
-                      <span className="text-blue-400">5200</span>
-                      <span className="text-gray-400">,</span>
-                    </div>
-
-                    {/* Line 6 */}
-                    <div className="pl-4">
-                      <span className="text-cyan-400">stack</span>
-                      <span className="text-gray-400">: [</span>
-                      <span className="text-green-400">
-                        &apos;Next.Js&apos;
-                      </span>
-                      <span className="text-gray-400">, </span>
-                      <span className="text-green-400">&apos;React&apos;</span>
-                      <span className="text-gray-400">, </span>
-                      <span className="text-green-400">
-                        &apos;Typescript&apos;
-                      </span>
-                      <span className="text-gray-400">],</span>
-                    </div>
-
-                    {/* Line 7 */}
-                    <div>
-                      <span className="text-yellow-400">{`}`}</span>
-                    </div>
-
-                    {/* Line 8 */}
-                    <div className="mt-3 pt-3 border-t border-slate-700">
-                      <span className="text-purple-400">function</span>
-                      <span className="text-white"> isHiring</span>
-                      <span className="text-gray-400">() </span>
-                      <span className="text-yellow-400">{`{`}</span>
-                    </div>
-
-                    {/* Line 9 */}
-                    <div className="pl-4">
-                      <span className="text-purple-400">return</span>
-                      <span className="text-blue-400"> true</span>
-                      <span className="text-gray-400">;</span>
-                    </div>
-
-                    {/* Line 10 */}
-                    <div>
-                      <span className="text-yellow-400">{`}`}</span>
-                    </div>
-                  </div>
-
-                  {/* Footer */}
-                  <div className="mt-3 pt-3 sm:mt-4 sm:pt-4 border-t border-slate-700 flex items-center justify-between text-xs text-gray-500">
-                    <span>Shift + Enter to run</span>
-                    <span>UTF-8</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Blinking cursor */}
+        <div className="px-5 pb-4 font-mono text-sm">
+          <span className="text-[#7B61FF] animate-pulse">▌</span>
         </div>
       </div>
     </div>
   );
 }
+
+// ─── Tech Badge ───────────────────────────────────────────────────────────────
+type TechBadgeProps = {
+  name: string;
+  delay?: number;
+};
+
+function TechBadge({ name, delay = 0 }: TechBadgeProps) {
+  return (
+    <span
+      className="px-3 py-1 rounded-full border border-white/8 text-white/50 text-xs font-mono tracking-wide hover:border-[#7B61FF]/40 hover:text-white/70 transition-all duration-300 cursor-default"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      {name}
+    </span>
+  );
+}
+
+// ─── Hero Section ─────────────────────────────────────────────────────────────
+const HeroSection = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+
+  const stack = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind",
+    "Node.js",
+    "Expo",
+    "Figma",
+  ];
+
+  const { download } = useDownloadFile();
+
+  return (
+    <section
+      id="heroSection"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(123,97,255,0.28),transparent_36%),radial-gradient(circle_at_20%_25%,rgba(0,229,255,0.18),transparent_30%),radial-gradient(circle_at_80%_75%,rgba(255,107,186,0.16),transparent_28%),linear-gradient(180deg,#060612_0%,#07081a_42%,#04040c_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-60"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+          maskImage:
+            "radial-gradient(circle at center, black 0%, black 58%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-128 w-lg -translate-x-1/2 rounded-full bg-[#7B61FF]/15 blur-[140px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-[#00E5FF]/10 blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-20 -right-16 h-80 w-80 rounded-full bg-[#FF6BBA]/10 blur-[120px]"
+      />
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-80px)]">
+          {/* ── Left Column ── */}
+          <div className="flex flex-col gap-8">
+            {/* Status pill */}
+            <div className="flex items-center gap-2 w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E5FF] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00E5FF]" />
+              </span>
+              <span className="text-[#00E5FF] text-xs font-mono tracking-widest uppercase">
+                Open to opportunities
+              </span>
+            </div>
+
+            {/* Headline */}
+            <div className="flex flex-col gap-3">
+              <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight">
+                <span className="text-white">Crafting</span>
+                <span
+                  className="bg-clip-text text-transparent ml-3"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(135deg, #7B61FF 0%, #00E5FF 50%, #FF6BBA 100%)",
+                  }}
+                >
+                  digital
+                </span>
+                <br />
+                <span className="text-white">experiences.</span>
+              </h1>
+            </div>
+
+            {/* Sub-copy */}
+            <p className="text-white/50 text-lg leading-relaxed max-w-md font-light">
+              Full-stack web developer obsessed with turning complex ideas into
+              beautiful, performant interfaces — from pixel to production.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-4 flex-wrap">
+              <Link
+                href="#experience"
+                className="group relative px-7 py-2.5 md:py-3.5 rounded-xl text-sm font-medium text-white overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                style={{
+                  background: "linear-gradient(135deg, #7B61FF, #5B3FDE)",
+                  boxShadow: "0 0 40px rgba(123,97,255,0.3)",
+                }}
+              >
+                <span className="relative z-10">View my work</span>
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Link>
+              <Button
+                variant="outline"
+                size="xl"
+                onClick={() => download("/amenx-resume.pdf", "resume.pdf")}
+                className="px-7 py-3.5 rounded-xl text-sm font-medium text-white/70 border border-white/10 hover:border-white/30 hover:text-white transition-all duration-300"
+              >
+                Download CV
+              </Button>
+            </div>
+
+            {/* Stack pills */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              {stack.map((t, i) => (
+                <TechBadge key={t} name={t} delay={i * 60} />
+              ))}
+            </div>
+
+            {/* Stats row */}
+            <div
+              className="flex items-center gap-8 pt-4 border-t border-white/5"
+              style={{
+                opacity: mounted ? 1 : 0,
+                transition: "opacity 1s ease 0.5s",
+              }}
+            >
+              {[
+                { n: "1+", label: "Years exp." },
+                { n: "3", label: "Projects shipped" },
+                { n: "98%", label: "Client satisfaction" },
+              ].map(({ n, label }) => (
+                <div key={label} className="flex flex-col">
+                  <span className="text-2xl font-bold text-white tracking-tight">
+                    {n}
+                  </span>
+                  <span className="text-xs text-white/50 font-light">
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Right Column ── */}
+          <div className="hidden lg:flex flex-col items-center justify-center gap-8">
+            <CodeCard />
+
+            {/* Floating accent badges */}
+            <div className="flex items-center gap-3">
+              {["TypeScript", "Next.js 15", "Tailwind v4"].map((t) => (
+                <span
+                  key={t}
+                  className="px-3 py-1.5 rounded-lg bg-[#0D0D1F] border border-white/8 text-white/50 text-xs font-mono hover:border-[#7B61FF]/40 hover:text-white/80 transition-all duration-200"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
