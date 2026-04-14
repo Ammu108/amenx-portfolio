@@ -9,19 +9,28 @@ export default function FeaturedProjects() {
       id: 1,
       title: "Earnex Rewards",
       description:
-        "Earnex Rewards connects brands with real users through performance-driven, reward-based engagement—boosting visibility, trust, and measurable results.",
+        "Earnex Rewards connects brands with real users through performance-driven, reward-based engagement—boosting trust.",
       tags: ["REACT", "NEXTJS", "TAILWIND CSS"],
       image: "/earnex-screen.webp",
       projectUrl: "https://www.earnexrewards.com/",
     },
     {
       id: 2,
-      title: "Portfolio Website",
+      title: "Portfolio Website - 1",
       description:
-        "A personal portfolio website built with Next.js, showcasing projects, skills, and experience with a modern, responsive design, With smooth animations and interactive elements.",
+        "A personal portfolio website built with Next.js, showcasing projects, skills, and experience with a modern design.",
       tags: ["REACT", "NEXTJS", "TAILWIND CSS"],
       image: "/portfolio-img-1.png",
       projectUrl: "https://ayush-portfolio-two-beta.vercel.app/",
+    },
+    {
+      id: 3,
+      title: "Portfolio Website - 2",
+      description:
+        "A personal portfolio website built with Next.js, showcasing projects, skills, and experience with a modern design.",
+      tags: ["REACT", "NEXTJS", "TAILWIND CSS"],
+      image: "/portfolio-img-2.png",
+      projectUrl: "https://rishabh-portfolio-tau.vercel.app/",
     },
   ];
 
@@ -49,7 +58,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-8 md:gap-10 flex-col gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 sm:gap-8 md:gap-10 flex-col gap-10">
           {projects.map((project) => (
             <CardContainer key={project.id} className="inter-var w-full">
               <CardBody className="bg-slate-800/40 relative group/card hover:shadow-2xl hover:shadow-cyan-500/10 backdrop-blur-sm border-slate-700/50 border w-full h-auto rounded-xl p-6 sm:p-8 transition-all duration-300 hover:bg-slate-800/60 hover:border-slate-600/50">

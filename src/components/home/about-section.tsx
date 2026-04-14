@@ -50,10 +50,10 @@ export default function AboutSection() {
               Building modern products while pursuing a strong academic track.
             </h2>
             <p className="max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
-              I am Aman Kumar, a frontend-focused developer currently pursuing
-              BCA in Greater Noida. I enjoy translating ideas into polished
-              interfaces with fast performance, clear structure, and thoughtful
-              user experience.
+              I am Aman Kumar, a frontend-focused developer while backend still
+              learning. currently pursuing BCA in Greater Noida. I enjoy
+              translating ideas into polished interfaces with fast performance,
+              clear structure, and thoughtful user experience.
             </p>
           </div>
 

@@ -160,7 +160,7 @@ const HeroSection = () => {
         className="pointer-events-none absolute -bottom-20 -right-16 h-80 w-80 rounded-full bg-[#FF6BBA]/10 blur-[120px]"
       />
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-80px)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center justify-between min-h-[calc(100vh-80px)]">
           {/* ── Left Column ── */}
           <div className="flex flex-col gap-8">
             {/* Status pill */}
@@ -176,19 +176,16 @@ const HeroSection = () => {
 
             {/* Headline */}
             <div className="flex flex-col gap-3">
-              <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-tight">
-                <span className="text-white">Crafting</span>
-                <span
-                  className="bg-clip-text text-transparent ml-3"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, #7B61FF 0%, #00E5FF 50%, #FF6BBA 100%)",
-                  }}
-                >
-                  digital
-                </span>
-                <br />
-                <span className="text-white">experiences.</span>
+              <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+                From{" "}
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-[#7B61FF] via-[#00E5FF] to-[#FF6BBA]">
+                  IDEA
+                </span>{" "}
+                to <br className="hidden xl:block" />
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-[#7B61FF] via-[#00E5FF] to-[#FF6BBA]">
+                  Interface
+                </span>{" "}
+                experiences.
               </h1>
             </div>
 
