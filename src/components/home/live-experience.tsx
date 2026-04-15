@@ -16,11 +16,6 @@ export default function LiveExperience() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-55"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
-          backgroundSize: "70px 70px",
-        }}
       />
       <div className="max-w-7xl mx-auto px-4">
         {/* Header Section */}

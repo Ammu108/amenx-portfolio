@@ -33,11 +33,6 @@ export default function AboutSection() {
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-55"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
       />
 
       <div className="mx-auto grid w-full max-w-7xl px-4 grid-cols-1 items-start gap-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -99,7 +94,7 @@ export default function AboutSection() {
                 Aman Kumar
               </h3>
               <p className="mt-1 text-sm text-[#00E5FF]">
-                Frontend Developer | React.js Specialist
+                Frontend Developer | React.js
               </p>
             </div>
 
