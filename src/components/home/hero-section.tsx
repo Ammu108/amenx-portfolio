@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useDownloadFile } from "@/lib/download-hook";
+import { useDownloadFile } from "@/src/lib/download-hook";
 
 // ─── Code Snippet Decoration ─────────────────────────────────────────────────
 function CodeCard() {
@@ -68,7 +68,7 @@ function CodeCard() {
         </div>
 
         {/* Code body */}
-        <div className="p-5 font-mono text-sm leading-7">
+        <div className="p-5 font-mono text-base leading-7">
           {lines.map((line, i) => (
             <div key={i} style={{ paddingLeft: `${line.indent * 16}px` }}>
               {line.tokens.map((tok, j) => (

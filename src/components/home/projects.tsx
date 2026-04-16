@@ -58,7 +58,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 sm:gap-8 md:gap-10 flex-col gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 sm:gap-8 md:gap-10 flex-col gap-10">
           {projects.map((project) => (
             <CardContainer key={project.id} className="inter-var w-full">
               <CardBody className="bg-slate-800/40 relative group/card hover:shadow-2xl hover:shadow-cyan-500/10 backdrop-blur-sm border-slate-700/50 border w-full h-auto rounded-xl p-6 sm:p-8 transition-all duration-300 hover:bg-slate-800/60 hover:border-slate-600/50">
