@@ -62,9 +62,7 @@ function CodeCard() {
           <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
           <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
           <div className="w-3 h-3 rounded-full bg-[#28C840]" />
-          <span className="ml-2 text-white/20 text-xs font-mono">
-            developer.js
-          </span>
+          <span className="ml-2 text-white/20 text-xs font-mono">developer.js</span>
         </div>
 
         {/* Code body */}
@@ -117,9 +115,9 @@ const HeroSection = () => {
 
   const stack = [
     "React",
-    "Next.js",
+    "Next.js 15",
     "TypeScript",
-    "Tailwind",
+    "Tailwind v4",
     "Node.js",
     "Expo",
     "Figma",
@@ -163,17 +161,6 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center justify-between min-h-[calc(100vh-80px)]">
           {/* ── Left Column ── */}
           <div className="flex flex-col gap-8">
-            {/* Status pill */}
-            <div className="flex items-center gap-2 w-fit">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E5FF] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00E5FF]" />
-              </span>
-              <span className="text-[#00E5FF] text-xs font-mono tracking-widest uppercase">
-                Open to opportunities
-              </span>
-            </div>
-
             {/* Headline */}
             <div className="flex flex-col gap-3">
               <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-white">
@@ -191,8 +178,8 @@ const HeroSection = () => {
 
             {/* Sub-copy */}
             <p className="text-white/50 text-lg leading-relaxed max-w-md font-light">
-              Full-stack web developer obsessed with turning complex ideas into
-              beautiful, performant interfaces — from pixel to production.
+              Full-stack web developer obsessed with turning complex ideas into beautiful,
+              performant interfaces — from pixel to production.
             </p>
 
             {/* CTA Buttons */}
@@ -239,12 +226,8 @@ const HeroSection = () => {
                 { n: "98%", label: "Client satisfaction" },
               ].map(({ n, label }) => (
                 <div key={label} className="flex flex-col">
-                  <span className="text-2xl font-bold text-white tracking-tight">
-                    {n}
-                  </span>
-                  <span className="text-xs text-white/50 font-light">
-                    {label}
-                  </span>
+                  <span className="text-2xl font-bold text-white tracking-tight">{n}</span>
+                  <span className="text-xs text-white/50 font-light">{label}</span>
                 </div>
               ))}
             </div>
